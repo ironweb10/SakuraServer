@@ -371,5 +371,30 @@ app.put("/v1/rebootrally/eligibility/friends", async (req, res) => {
     });
 });
 
+app.put("/api/v1/events/:game_id/download/:account_id", async (req, res) => {
+    res.json({
+        "player": {
+          "tokens": [],
+          "gameId": req.params.game_id,
+          "accountId": req.params.account_id,
+          "teams": {},
+          "pendingPayouts": [],
+          "pendingPenalties": {},
+          "persistentScores": {},
+          "groupIdentity": {}
+        },
+        "scoringRuleSets": {},
+        "payoutTables": {},
+        "events": [],
+        "templates": [],
+        "scores": [],
+        "leaderboardDefs": [],
+        "scoreLocationScoringRuleSets": {},
+        "scoreLocationPayoutTables": {},
+        "resolvedWindowLocations": {},
+        "eventSeries": []
+    });
+});
+
 module.exports = app;
 

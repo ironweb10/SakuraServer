@@ -39,11 +39,14 @@ app.get("/fortnite/api/storefront/v2/catalog", async (req, res) => {
 });
 
 app.get("/fortnite/api/calendar/v1/timeline", async (req, res) => {
+ 
 
     const response = require("../responses/calendar/timeline.json");
 
     res.json(response);
 
+
+            
 });
 
 app.get("/fortnite/api/discovery/accessToken/:branch_name", async (req, res) => {

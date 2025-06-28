@@ -15,13 +15,16 @@ app.get("/links/api/fn/mnemonic/:playlist_id/related", async (req, res) => {
 });
 
 app.post("/links/api/fn/mnemonic", async (req, res) => {
-    console.log(req.body);
     const response = {
         "parentLinks": [],
         "links": {}
     };
 
-    response.links.playlist_playgroundv2 = require("../links/playlist_playgroundv2.json");
+    req.body.forEach(mnemonic => {
+        if (mnemonic.mnemonic == "playlist_playgroundv2") {
+            response.links.playlist_playgroundv2 = require("../links/playlist_playgroundv2.json");
+        }
+    });
 
     res.json(response);
 });
